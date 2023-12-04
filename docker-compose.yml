@@ -12,7 +12,7 @@ services:
       MYSQL_DB: myDb
     depends_on:
       - mysql
-    networks:  # Specify the network here
+    networks:  # Specify the network heree
       - austin_networks
 
   mysql:
