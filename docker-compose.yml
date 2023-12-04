@@ -12,7 +12,7 @@ services:
       MYSQL_DB: myDb
     depends_on:
       - mysql
-    networks:  # Specify the network heree
+    networks:  # Adding the network to the backend service
       - austin_networks
 
   mysql:
@@ -27,9 +27,12 @@ services:
     volumes:
       - ./message.sql:/docker-entrypoint-initdb.d/message.sql
       - mysql-data:/var/lib/mysql
-    networks:  # Specify the network here
+    networks:  # Adding the network to the mysql service
       - austin_networks
 
-networks:  # Define the network
-  austin_networks:  # Network name
+volumes:
+  mysql-data:
+
+networks:  # Defining the new network
+  austin_networks:
     driver: bridge  # You can specify the driver if needed
